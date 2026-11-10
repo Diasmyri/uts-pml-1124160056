@@ -33,6 +33,7 @@ class ProfilePage extends StatelessWidget {
         title: const Text('Halaman Profile Mahasiswa'),
         actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.info))],
       ),
+
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -45,6 +46,7 @@ class ProfilePage extends StatelessWidget {
                     child: Icon(Icons.person, size: 50),
                   ),
                 ),
+
                 const SizedBox(height: 16),
 
                 Text(
@@ -55,21 +57,107 @@ class ProfilePage extends StatelessWidget {
                 const SizedBox(height: 8),
 
                 Text(
-                  '1124160056',
+                  'NIM: 1124160056',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(height: 8),
 
                 Text(
-                  'Teknik Informatika',
+                  'Program Studi Teknik Informatika',
                   style: Theme.of(context).textTheme.bodyMedium,
+                ),
+
+                const SizedBox(height: 24),
+
+                Card(
+                  child: Column(
+                    children: const [
+                      InfoTile(
+                        icon: Icons.email,
+                        label: 'Email',
+                        value: 'diasmayri15@gmail.com',
+                      ),
+                      InfoTile(
+                        icon: Icons.phone,
+                        label: 'Nomor HP',
+                        value: '08882007965218',
+                      ),
+                      InfoTile(
+                        icon: Icons.school,
+                        label: 'Kelas',
+                        value: 'Teknik Informatika',
+                      ),
+                      InfoTile(
+                        icon: Icons.code,
+                        label: 'GitHub',
+                        value: 'github.com/Diasmyri',
+                      ),
+                    ],
+                  ),
+                ),
+
+                const SizedBox(height: 16),
+
+                Card(
+                  child: Column(
+                    children: const [
+                      InfoTile(
+                        icon: Icons.code,
+                        label: 'Keahlian',
+                        value: 'Frontend',
+                      ),
+                      InfoTile(
+                        icon: Icons.web,
+                        label: 'Keahlian',
+                        value: 'Web Development',
+                      ),
+                      InfoTile(
+                        icon: Icons.music_note,
+                        label: 'Hobi',
+                        value: 'Mendengarkan Musik',
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
         ),
       ),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Terima kasih telah melihat profil saya'),
+            ),
+          );
+        },
+        child: const Icon(Icons.favorite),
+      ),
+    );
+  }
+}
+
+class InfoTile extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final String value;
+
+  const InfoTile({
+    super.key,
+    required this.icon,
+    required this.label,
+    required this.value,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(label),
+      subtitle: Text(value),
     );
   }
 }
