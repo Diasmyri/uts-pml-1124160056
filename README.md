@@ -1,16 +1,9 @@
-# soal1_live_coding
+# UTS Pemrograman Mobile
 
-A new Flutter project.
+Repository ini berisi dua tugas Flutter.
 
-## Getting Started
+## Tugas 1 - Live Coding
+Folder: soal1_live_coding
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tugas 2 - Profil App
+Folder: soal2_profil_app
