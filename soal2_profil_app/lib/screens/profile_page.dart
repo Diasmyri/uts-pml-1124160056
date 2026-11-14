@@ -1,24 +1,62 @@
 import 'package:flutter/material.dart';
 import '../models/profile.dart';
+import 'edit_profile_page.dart';
 
-class ProfilePage extends StatelessWidget {
-  ProfilePage({super.key});
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
 
-  final Profile profile = Profile(
-    nama: 'Dias Mayri',
-    nim: '1124160056',
-    programStudi: 'Teknik Informatika',
-    kelas: 'TI24PSE3',
-    email: 'diasmayri15@gmail.com',
-    nomorHp: '0882007965218',
-    github: 'github.com/Diasmyri',
-    foto: 'assets/images/foto_dias.jpeg',
-  );
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  late Profile profile;
+
+  @override
+  void initState() {
+    super.initState();
+
+    profile = Profile(
+      nama: 'Dias Mayri',
+      nim: '1124160056',
+      programStudi: 'Teknik Informatika',
+      kelas: 'TI24PSE3',
+      email: 'diasmayri15@gmail.com',
+      nomorHp: '0882007965218',
+      github: 'github.com/Diasmyri',
+      foto: 'assets/images/foto_dias.jpeg',
+    );
+  }
+
+  Future<void> editProfil() async {
+    final dataBaru = await Navigator.push<Profile>(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EditProfilePage(profile: profile),
+      ),
+    );
+
+    if (dataBaru != null) {
+      setState(() {
+        profile = dataBaru;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Profil Mahasiswa'), centerTitle: true),
+      appBar: AppBar(
+        title: const Text('Profil Mahasiswa'),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: editProfil,
+            icon: const Icon(Icons.edit),
+            tooltip: 'Edit Profil',
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -26,16 +64,12 @@ class ProfilePage extends StatelessWidget {
             CircleAvatar(
               radius: 60,
               backgroundColor: Colors.blueAccent,
-              child: profile.foto.isNotEmpty
-                  ? ClipOval(
-                      child: Image.asset(
-                        profile.foto,
-                        width: 120,
-                        height: 120,
-                        fit: BoxFit.cover,
-                      ),
-                    )
-                  : const Icon(Icons.person, size: 70, color: Colors.white),
+              backgroundImage: profile.foto.isNotEmpty
+                  ? AssetImage(profile.foto)
+                  : null,
+              child: profile.foto.isEmpty
+                  ? const Icon(Icons.person, size: 70, color: Colors.white)
+                  : null,
             ),
             const SizedBox(height: 16),
             Text(
@@ -61,6 +95,15 @@ class ProfilePage extends StatelessWidget {
                   buildInfoTile(Icons.phone, 'Nomor HP', profile.nomorHp),
                   buildInfoTile(Icons.code, 'GitHub', profile.github),
                 ],
+              ),
+            ),
+            const SizedBox(height: 20),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                onPressed: editProfil,
+                icon: const Icon(Icons.edit),
+                label: const Text('Edit Profil'),
               ),
             ),
           ],
