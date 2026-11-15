@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/profile_page.dart';
+import 'package:soal2_profil_app/screens/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
-      home: ProfilePage(isDarkMode: isDarkMode, onThemeChanged: ubahTema),
+      home: LoginPage(isDarkMode: isDarkMode, onThemeChanged: ubahTema),
     );
   }
 }

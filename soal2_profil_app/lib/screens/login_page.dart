@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'profile_page.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final bool isDarkMode;
+  final VoidCallback onThemeChanged;
+
+  const LoginPage({
+    super.key,
+    required this.isDarkMode,
+    required this.onThemeChanged,
+  });
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -35,9 +43,15 @@ class _LoginPageState extends State<LoginPage> {
         isLoading = false;
       });
 
-      ScaffoldMessenger.of(
+      Navigator.pushReplacement(
         context,
-      ).showSnackBar(const SnackBar(content: Text('Login berhasil')));
+        MaterialPageRoute(
+          builder: (context) => ProfilePage(
+            isDarkMode: widget.isDarkMode,
+            onThemeChanged: widget.onThemeChanged,
+          ),
+        ),
+      );
     }
   }
 
@@ -58,11 +72,14 @@ class _LoginPageState extends State<LoginPage> {
                 color: Colors.blueAccent,
               ),
               const SizedBox(height: 20),
+
               const Text(
                 'Login Mahasiswa',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
+
               const SizedBox(height: 30),
+
               TextFormField(
                 controller: emailController,
                 keyboardType: TextInputType.emailAddress,
@@ -81,7 +98,9 @@ class _LoginPageState extends State<LoginPage> {
                   return null;
                 },
               ),
+
               const SizedBox(height: 16),
+
               TextFormField(
                 controller: passwordController,
                 obscureText: true,
@@ -100,7 +119,9 @@ class _LoginPageState extends State<LoginPage> {
                   return null;
                 },
               ),
+
               const SizedBox(height: 24),
+
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
