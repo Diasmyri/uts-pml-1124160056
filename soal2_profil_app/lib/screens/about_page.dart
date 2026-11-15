@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatelessWidget {
-  const AboutPage({super.key});
+  final String nama;
+  final String foto;
+
+  const AboutPage({super.key, required this.nama, required this.foto});
 
   final List<String> skills = const [
     'Flutter Development',
@@ -36,35 +39,40 @@ class AboutPage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
-          const CircleAvatar(
-            radius: 45,
-            backgroundColor: Colors.blueAccent,
-            child: Icon(Icons.person, size: 55, color: Colors.white),
+          Center(
+            child: CircleAvatar(radius: 60, backgroundImage: AssetImage(foto)),
           ),
+
           const SizedBox(height: 16),
-          const Center(
+
+          Center(
             child: Text(
-              'Dias Mayri',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              nama,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
           ),
+
           const SizedBox(height: 24),
 
           const Text(
             'Tentang Saya',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
+
           const SizedBox(height: 8),
+
           const Text(
             'Saya adalah mahasiswa yang tertarik dengan '
             'pengembangan aplikasi mobile dan teknologi.',
           ),
 
           const SizedBox(height: 24),
+
           const Text(
             'Keahlian (Skills)',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
+
           ...skills.map(
             (skill) => Card(
               child: ListTile(
@@ -75,10 +83,12 @@ class AboutPage extends StatelessWidget {
           ),
 
           const SizedBox(height: 16),
+
           const Text(
             'Hobi dan Minat',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
+
           ...hobbies.map(
             (hobby) => Card(
               child: ListTile(
@@ -89,10 +99,12 @@ class AboutPage extends StatelessWidget {
           ),
 
           const SizedBox(height: 16),
+
           const Text(
             'Riwayat Pendidikan',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
+
           ...pendidikan.map(
             (item) => Card(
               child: ListTile(

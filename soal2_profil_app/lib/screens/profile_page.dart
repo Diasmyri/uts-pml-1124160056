@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/profile.dart';
 import 'edit_profile_page.dart';
+import 'about_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -46,17 +47,44 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Profil Mahasiswa'),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            onPressed: editProfil,
-            icon: const Icon(Icons.edit),
-            tooltip: 'Edit Profil',
-          ),
-        ],
+      appBar: AppBar(title: const Text('Profil Mahasiswa'), centerTitle: true),
+
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(color: Colors.blueAccent),
+              child: Text(
+                'Aplikasi Profil Mahasiswa',
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text('Profil'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.info),
+              title: const Text('Tentang Saya'),
+              onTap: () {
+                Navigator.pop(context);
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        AboutPage(nama: profile.nama, foto: profile.foto),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
       ),
+
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -72,15 +100,19 @@ class _ProfilePageState extends State<ProfilePage> {
                   : null,
             ),
             const SizedBox(height: 16),
+
             Text(
               profile.nama,
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
+
             const Text(
               'Mahasiswa',
               style: TextStyle(color: Colors.grey, fontSize: 16),
             ),
+
             const SizedBox(height: 24),
+
             Card(
               child: Column(
                 children: [
@@ -97,7 +129,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
             ),
+
             const SizedBox(height: 20),
+
             SizedBox(
               width: double.infinity,
               child: ElevatedButton.icon(
@@ -108,6 +142,30 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ],
         ),
+      ),
+
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profil'),
+          BottomNavigationBarItem(icon: Icon(Icons.info), label: 'Tentang'),
+        ],
+        onTap: (index) {
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    AboutPage(nama: profile.nama, foto: profile.foto),
+              ),
+            );
+          }
+        },
+      ),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: editProfil,
+        child: const Icon(Icons.edit),
       ),
     );
   }
