@@ -4,7 +4,14 @@ import 'edit_profile_page.dart';
 import 'about_page.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+  final bool isDarkMode;
+  final VoidCallback onThemeChanged;
+
+  const ProfilePage({
+    super.key,
+    required this.isDarkMode,
+    required this.onThemeChanged,
+  });
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -47,7 +54,17 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Profil Mahasiswa'), centerTitle: true),
+      appBar: AppBar(
+        title: const Text('Profil Mahasiswa'),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: widget.onThemeChanged,
+            icon: Icon(widget.isDarkMode ? Icons.light_mode : Icons.dark_mode),
+            tooltip: 'Ganti Tema',
+          ),
+        ],
+      ),
 
       drawer: Drawer(
         child: ListView(
