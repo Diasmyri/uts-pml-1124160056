@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/profile.dart';
+import '../widgets/info_tile.dart';
 import 'edit_profile_page.dart';
 import 'about_page.dart';
 
@@ -116,6 +117,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ? const Icon(Icons.person, size: 70, color: Colors.white)
                   : null,
             ),
+
             const SizedBox(height: 16),
 
             Text(
@@ -133,16 +135,32 @@ class _ProfilePageState extends State<ProfilePage> {
             Card(
               child: Column(
                 children: [
-                  buildInfoTile(Icons.badge, 'NIM', profile.nim),
-                  buildInfoTile(
-                    Icons.school,
-                    'Program Studi',
-                    profile.programStudi,
+                  InfoTile(icon: Icons.badge, title: 'NIM', value: profile.nim),
+                  InfoTile(
+                    icon: Icons.school,
+                    title: 'Program Studi',
+                    value: profile.programStudi,
                   ),
-                  buildInfoTile(Icons.class_, 'Kelas', profile.kelas),
-                  buildInfoTile(Icons.email, 'Email', profile.email),
-                  buildInfoTile(Icons.phone, 'Nomor HP', profile.nomorHp),
-                  buildInfoTile(Icons.code, 'GitHub', profile.github),
+                  InfoTile(
+                    icon: Icons.class_,
+                    title: 'Kelas',
+                    value: profile.kelas,
+                  ),
+                  InfoTile(
+                    icon: Icons.email,
+                    title: 'Email',
+                    value: profile.email,
+                  ),
+                  InfoTile(
+                    icon: Icons.phone,
+                    title: 'Nomor HP',
+                    value: profile.nomorHp,
+                  ),
+                  InfoTile(
+                    icon: Icons.code,
+                    title: 'GitHub',
+                    value: profile.github,
+                  ),
                 ],
               ),
             ),
@@ -184,14 +202,6 @@ class _ProfilePageState extends State<ProfilePage> {
         onPressed: editProfil,
         child: const Icon(Icons.edit),
       ),
-    );
-  }
-
-  Widget buildInfoTile(IconData icon, String title, String value) {
-    return ListTile(
-      leading: Icon(icon, color: Colors.blueAccent),
-      title: Text(title),
-      subtitle: Text(value),
     );
   }
 }
