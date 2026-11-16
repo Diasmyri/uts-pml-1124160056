@@ -24,11 +24,11 @@ Link YouTube:
 
 ### 2. Halaman Profil
 
-![Halaman Profil](soal2_profil_app/screenshots/profil.jpeg)
+![Halaman Profil](soal2_profil_app/screenshots/profile.jpeg)
 
 ### 3. Halaman Edit Profil
 
-![Halaman Edit Profil](soal2_profil_app/screenshots/edit_profil.jpeg)
+![Halaman Edit Profil](soal2_profil_app/screenshots/edit.jpeg)
 
 ### 4. Tampilan DarkMode
 
