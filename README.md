@@ -20,15 +20,19 @@ Link YouTube:
 
 ### 1. Halaman Login
 
-![Halaman Login](soal2_profil_app/screenshots/login.png)
+![Halaman Login](soal2_profil_app/screenshots/login.jpeg)
 
 ### 2. Halaman Profil
 
-![Halaman Profil](soal2_profil_app/screenshots/profil.png)
+![Halaman Profil](soal2_profil_app/screenshots/profil.jpeg)
 
 ### 3. Halaman Edit Profil
 
-![Halaman Edit Profil](soal2_profil_app/screenshots/edit_profil.png)
+![Halaman Edit Profil](soal2_profil_app/screenshots/edit_profil.jpeg)
+
+### 4. Tampilan DarkMode
+
+![Halaman DarkMode](soal2_profil_app/screenshots/darkmode.jpeg)
 
 ## Fitur Aplikasi
 
