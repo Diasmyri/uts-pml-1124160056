@@ -14,25 +14,17 @@ Aplikasi Profil Mahasiswa merupakan aplikasi mobile berbasis Flutter yang dibuat
 
 ## Video Presentasi
 
-Link YouTube: 
+[**Tonton Video Presentasi UTS di YouTube**](https://youtu.be/cR0iS-R1j_0)
 
 ## Screenshot Aplikasi
 
-### 1. Halaman Login
+| Halaman Login | Halaman Profil |
+|:---:|:---:|
+| <img src="soal2_profil_app/screenshots/login.jpeg" width="200"> | <img src="soal2_profil_app/screenshots/profile.jpeg" width="200"> |
 
-![Halaman Login](soal2_profil_app/screenshots/login.jpeg)
-
-### 2. Halaman Profil
-
-![Halaman Profil](soal2_profil_app/screenshots/profile.jpeg)
-
-### 3. Halaman Edit Profil
-
-![Halaman Edit Profil](soal2_profil_app/screenshots/edit.jpeg)
-
-### 4. Tampilan DarkMode
-
-![Halaman DarkMode](soal2_profil_app/screenshots/darkmode.jpeg)
+| Halaman Edit Profil | Tampilan Dark Mode |
+|:---:|:---:|
+| <img src="soal2_profil_app/screenshots/edit.jpeg" width="200"> | <img src="soal2_profil_app/screenshots/darkmode.jpeg" width="200"> |
 
 ## Fitur Aplikasi
 
@@ -45,11 +37,12 @@ Link YouTube:
 - Navigasi menggunakan Drawer dan BottomNavigationBar.
 - FloatingActionButton untuk mengakses fitur edit profil.
 
-## Teknologi
+## Teknologi yang Digunakan
 
 - Flutter
 - Dart
-- Material Design
+- Material Design 3
+- Android Studio
 
 ## Cara Menjalankan Aplikasi
 
@@ -79,4 +72,6 @@ Link YouTube:
 
 ## Download APK
 
-APK Release versi `v1.0.0` dapat diunduh melalui bagian **Releases** pada repository GitHub.
+APK Release versi **v1.0.0** dapat diunduh melalui link berikut:
+
+[**Download APK Aplikasi Profil Mahasiswa**](https://github.com/Diasmyri/uts-pml-1124160056/releases/latest)
